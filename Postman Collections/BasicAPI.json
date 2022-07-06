@@ -494,37 +494,37 @@
 	],
 	"variable": [
 		{
-			"id": "3e3c1d48-87e3-4ca4-85e6-740dbc53fa55",
+			"id": "0f4dad8f-780b-4d90-80f6-1905d9a240e2",
 			"key": "randomNum",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "11a8acc4-c35b-40cb-ad92-9b1180555053",
+			"id": "2d564241-d2d1-4bc4-9c74-2b288dbe24ef",
 			"key": "commonurl",
 			"value": "https://reqres.in",
 			"type": "string"
 		},
 		{
-			"id": "b35a5f88-0848-4908-96ec-7183bc87e34e",
+			"id": "f69d2764-f655-49cd-83d8-45581b903431",
 			"key": "job",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "75cd058d-d620-4f73-bd59-8b3242a27e85",
+			"id": "496fb31b-f482-4e00-aed0-beeb68e48147",
 			"key": "email",
 			"value": "eve.holt@reqres.in",
 			"type": "string"
 		},
 		{
-			"id": "c6501b45-a55e-4e02-9da4-959e582b07e7",
+			"id": "87eca5e8-00a6-47ad-b088-098386562539",
 			"key": "validpassword",
 			"value": "cityslicka",
 			"type": "string"
 		},
 		{
-			"id": "3b331a01-acb7-43c9-b2c0-299d9e9493cc",
+			"id": "f393da7e-6057-4f11-8085-0393fc6dd9aa",
 			"key": "name",
 			"value": "Tomi",
 			"type": "string"
