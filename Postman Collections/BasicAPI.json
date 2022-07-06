@@ -29,7 +29,7 @@
 							}
 						}
 					],
-					"_postman_id": "5d243dac-14fb-48f2-8ab1-ba40f4e4cb21",
+					"id": "5d243dac-14fb-48f2-8ab1-ba40f4e4cb21",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -70,7 +70,7 @@
 							}
 						}
 					],
-					"_postman_id": "31320f85-682f-40b2-a84a-aac5b8bc0855",
+					"id": "31320f85-682f-40b2-a84a-aac5b8bc0855",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -91,7 +91,7 @@
 					"response": []
 				}
 			],
-			"_postman_id": "c4cdc976-60b3-420a-bc33-d56d32e5622b"
+			"id": "c4cdc976-60b3-420a-bc33-d56d32e5622b"
 		},
 		{
 			"name": "USERS",
@@ -134,7 +134,7 @@
 									}
 								}
 							],
-							"_postman_id": "51edbed3-4e15-4a9f-a174-70c320c45fb0",
+							"id": "51edbed3-4e15-4a9f-a174-70c320c45fb0",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -155,8 +155,7 @@
 							"response": []
 						}
 					],
-					"_postman_id": "7da8e23b-2e6a-47e3-95ca-972307b664ef",
-					"_postman_isSubFolder": true
+					"id": "7da8e23b-2e6a-47e3-95ca-972307b664ef"
 				},
 				{
 					"name": "Get Users",
@@ -185,7 +184,7 @@
 									}
 								}
 							],
-							"_postman_id": "2a101b06-305e-4f5a-8fba-9515bf88b970",
+							"id": "2a101b06-305e-4f5a-8fba-9515bf88b970",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -240,7 +239,7 @@
 									}
 								}
 							],
-							"_postman_id": "24eaf08f-f47d-48a6-a0d6-0918c42b738e",
+							"id": "24eaf08f-f47d-48a6-a0d6-0918c42b738e",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -295,7 +294,7 @@
 									}
 								}
 							],
-							"_postman_id": "1b2eaaa8-0479-467e-a59a-5da6f206e367",
+							"id": "1b2eaaa8-0479-467e-a59a-5da6f206e367",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -354,7 +353,7 @@
 									}
 								}
 							],
-							"_postman_id": "4fc220c3-9a9f-46c5-8cbc-3eac95113b2d",
+							"id": "4fc220c3-9a9f-46c5-8cbc-3eac95113b2d",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -381,8 +380,7 @@
 							"response": []
 						}
 					],
-					"_postman_id": "d929468b-e448-4072-ac28-c79bc5a87bef",
-					"_postman_isSubFolder": true
+					"id": "d929468b-e448-4072-ac28-c79bc5a87bef"
 				},
 				{
 					"name": "Update Users",
@@ -408,7 +406,7 @@
 									}
 								}
 							],
-							"_postman_id": "158d723f-23ef-43fe-a7ac-f8e8d69aa397",
+							"id": "158d723f-23ef-43fe-a7ac-f8e8d69aa397",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -429,8 +427,7 @@
 							"response": []
 						}
 					],
-					"_postman_id": "b2399aa1-480f-4e77-bff6-3facdbc8a683",
-					"_postman_isSubFolder": true
+					"id": "b2399aa1-480f-4e77-bff6-3facdbc8a683"
 				},
 				{
 					"name": "Delete Users",
@@ -451,7 +448,7 @@
 									}
 								}
 							],
-							"_postman_id": "9f4520bb-7f6d-4758-aa5c-b73a71879975",
+							"id": "9f4520bb-7f6d-4758-aa5c-b73a71879975",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -463,11 +460,10 @@
 							"response": []
 						}
 					],
-					"_postman_id": "ee655ff7-c2d3-46e7-b142-3d8a03779b1a",
-					"_postman_isSubFolder": true
+					"id": "ee655ff7-c2d3-46e7-b142-3d8a03779b1a"
 				}
 			],
-			"_postman_id": "a710a75b-6766-4f18-a4fb-c2d52836645e"
+			"id": "a710a75b-6766-4f18-a4fb-c2d52836645e"
 		}
 	],
 	"event": [
@@ -494,37 +490,36 @@
 	],
 	"variable": [
 		{
-			"id": "0f4dad8f-780b-4d90-80f6-1905d9a240e2",
+			"id": "2c8be7b8-dff9-431d-89b8-4ceaf8bc16b7",
 			"key": "randomNum",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "2d564241-d2d1-4bc4-9c74-2b288dbe24ef",
+			"id": "c8a8ec9d-e82a-4228-83c9-f3f224841081",
 			"key": "commonurl",
 			"value": "https://reqres.in",
 			"type": "string"
 		},
 		{
-			"id": "f69d2764-f655-49cd-83d8-45581b903431",
+			"id": "097892cf-2609-4afd-986c-23c126a07cc8",
 			"key": "job",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "496fb31b-f482-4e00-aed0-beeb68e48147",
+			"id": "8249bf35-f86d-4296-ae90-2eade51464be",
 			"key": "email",
 			"value": "eve.holt@reqres.in",
 			"type": "string"
 		},
 		{
-			"id": "87eca5e8-00a6-47ad-b088-098386562539",
+			"id": "e0a39770-8e4c-4359-afc9-088a87d00620",
 			"key": "validpassword",
 			"value": "cityslicka",
 			"type": "string"
 		},
 		{
-			"id": "f393da7e-6057-4f11-8085-0393fc6dd9aa",
+			"id": "e490c31d-208e-4ccd-8030-2ad2dfa84df2",
 			"key": "name",
 			"value": "Tomi",
 			"type": "string"
