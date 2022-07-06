@@ -1,0 +1,533 @@
+{
+	"info": {
+		"_postman_id": "38d6765e-8c60-410b-a767-3ecaf77a8c5b",
+		"name": "Basic API Tests (Starters)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LOGIN",
+			"item": [
+				{
+					"name": "Login with valid details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a9ecaf75-48b3-4ba4-b68c-74128ef8f3fa",
+								"exec": [
+									"pm.test(\"HTTP status code should be 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Respone body has token\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"token\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "5d243dac-14fb-48f2-8ab1-ba40f4e4cb21",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{email}}\",\n    \"password\": \"{{validpassword}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{commonurl}}/api/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Login with invalid details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"var test = pm.response.json();",
+									"pm.test(\"verify error should equals missing password\", function(){",
+									"    pm.expect(test.error).to.eql(\"Missing password\");",
+									"})"
+								],
+								"type": "text/javascript",
+								"id": "70075e88-5569-4a60-91be-8b8da0995100"
+							}
+						}
+					],
+					"_postman_id": "31320f85-682f-40b2-a84a-aac5b8bc0855",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{email}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{commonurl}}/api/login"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "c4cdc976-60b3-420a-bc33-d56d32e5622b"
+		},
+		{
+			"name": "USERS",
+			"item": [
+				{
+					"name": "Create Users",
+					"item": [
+						{
+							"name": "Create user with valid details",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"// Randomly generate numbers",
+											"pm.collectionVariables.set (\"randomNum\", _.random (20,100));",
+											"",
+											"",
+											"//Randomly generate values and numbers",
+											"",
+											"var number = Math.floor(Math.random() * 100000);",
+											"",
+											"var job = 'rest' + number;",
+											"pm.environment.set(\"job\", job);"
+										],
+										"type": "text/javascript",
+										"id": "b9c695bb-2fd1-4b48-a3c5-fdaea79f5dea"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript",
+										"id": "058d3d60-ff7f-46b8-b318-4b1bb65e3891"
+									}
+								}
+							],
+							"_postman_id": "51edbed3-4e15-4a9f-a174-70c320c45fb0",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"{{randomNum}}\",\n    \"job\": \"{{job}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{commonurl}}/api/users"
+							},
+							"response": []
+						}
+					],
+					"_postman_id": "7da8e23b-2e6a-47e3-95ca-972307b664ef",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Get Users",
+					"item": [
+						{
+							"name": "Get a list of all users",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"const jsonData = pm.response.json();",
+											"pm.test(\"Test array properties is not empty\", () => {",
+											"    //errors array is not empty",
+											"  pm.expect(jsonData.data).to.not.be.empty;",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript",
+										"id": "a368d224-5f25-427e-80ab-3752b7c320f4"
+									}
+								}
+							],
+							"_postman_id": "2a101b06-305e-4f5a-8fba-9515bf88b970",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{commonurl}}/api/users?",
+									"host": [
+										"{{commonurl}}"
+									],
+									"path": [
+										"api",
+										"users"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get list of all users on page 1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"const jsonData = pm.response.json();",
+											"pm.test(\"Test array properties is not empty\", () => {",
+											"    //errors array is not empty",
+											"  pm.expect(jsonData.data).to.not.be.empty;",
+											"});",
+											"",
+											"var test = pm.response.json();",
+											"pm.test(\"verify page will be equal\", function(){",
+											"    pm.expect(test.page).to.eql(1);",
+											"})",
+											"",
+											""
+										],
+										"type": "text/javascript",
+										"id": "cf566df2-c785-457e-b39f-fc729cf44ea5"
+									}
+								}
+							],
+							"_postman_id": "24eaf08f-f47d-48a6-a0d6-0918c42b738e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{commonurl}}/api/users?page=1",
+									"host": [
+										"{{commonurl}}"
+									],
+									"path": [
+										"api",
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get list users with per page = 4",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"const jsonData = pm.response.json();",
+											"pm.test(\"Test array properties is not empty\", () => {",
+											"    //errors array is not empty",
+											"  pm.expect(jsonData.data).to.not.be.empty;",
+											"});",
+											"",
+											"var test = pm.response.json();",
+											"pm.test(\"verify page will be equal\", function(){",
+											"    pm.expect(test.per_page).to.eql(4);",
+											"})",
+											"",
+											""
+										],
+										"type": "text/javascript",
+										"id": "b8cc32dd-f0a5-4ed2-82dd-ed8a0514841e"
+									}
+								}
+							],
+							"_postman_id": "1b2eaaa8-0479-467e-a59a-5da6f206e367",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{commonurl}}/api/users?per_page=4",
+									"host": [
+										"{{commonurl}}"
+									],
+									"path": [
+										"api",
+										"users"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get list users with per page = 4 and validate the array",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"const jsonData = pm.response.json();",
+											"pm.test(\"Test array properties is not empty\", () => {",
+											"    //errors array is not empty",
+											"  pm.expect(jsonData.data).to.not.be.empty;",
+											"});",
+											"",
+											"var test = pm.response.json();",
+											"pm.test(\"verify page will be equal\", function(){",
+											"    pm.expect(test.per_page).to.eql(4);",
+											"})",
+											"",
+											"//This verifies the number of objects in the array.",
+											"var test = pm.response.json().data;",
+											"pm.test('Count of object in an array = ' + test.length, function () {",
+											"    pm.expect(test.length).to.equal(4);",
+											"});"
+										],
+										"type": "text/javascript",
+										"id": "15db9249-2391-42e6-8696-e310ff085d68"
+									}
+								}
+							],
+							"_postman_id": "4fc220c3-9a9f-46c5-8cbc-3eac95113b2d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{commonurl}}/api/users?per_page=4",
+									"host": [
+										"{{commonurl}}"
+									],
+									"path": [
+										"api",
+										"users"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_id": "d929468b-e448-4072-ac28-c79bc5a87bef",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Update Users",
+					"item": [
+						{
+							"name": "Update users",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"var test = pm.response.json();",
+											"pm.test(\"verify page will be equal\", function(){",
+											"    pm.expect(test.name).to.eql(\"Tomi\");",
+											"})"
+										],
+										"type": "text/javascript",
+										"id": "cfe122c4-4461-4dfb-83c5-2faa574959b5"
+									}
+								}
+							],
+							"_postman_id": "158d723f-23ef-43fe-a7ac-f8e8d69aa397",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"{{name}}\",\n    \"job\": \"zion resident\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{commonurl}}/api/users/4"
+							},
+							"response": []
+						}
+					],
+					"_postman_id": "b2399aa1-480f-4e77-bff6-3facdbc8a683",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Delete Users",
+					"item": [
+						{
+							"name": "New Request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript",
+										"id": "6eb63fec-0bda-4ce0-8888-ea7d79016c3b"
+									}
+								}
+							],
+							"_postman_id": "9f4520bb-7f6d-4758-aa5c-b73a71879975",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{commonurl}}/api/users/2"
+							},
+							"response": []
+						}
+					],
+					"_postman_id": "ee655ff7-c2d3-46e7-b142-3d8a03779b1a",
+					"_postman_isSubFolder": true
+				}
+			],
+			"_postman_id": "a710a75b-6766-4f18-a4fb-c2d52836645e"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "2c9101f6-9278-41a9-a87d-a90df0f7ec1a"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "3a605ec4-d665-465f-b8cb-caa511454dbc"
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "3e3c1d48-87e3-4ca4-85e6-740dbc53fa55",
+			"key": "randomNum",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "11a8acc4-c35b-40cb-ad92-9b1180555053",
+			"key": "commonurl",
+			"value": "https://reqres.in",
+			"type": "string"
+		},
+		{
+			"id": "b35a5f88-0848-4908-96ec-7183bc87e34e",
+			"key": "job",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "75cd058d-d620-4f73-bd59-8b3242a27e85",
+			"key": "email",
+			"value": "eve.holt@reqres.in",
+			"type": "string"
+		},
+		{
+			"id": "c6501b45-a55e-4e02-9da4-959e582b07e7",
+			"key": "validpassword",
+			"value": "cityslicka",
+			"type": "string"
+		},
+		{
+			"id": "3b331a01-acb7-43c9-b2c0-299d9e9493cc",
+			"key": "name",
+			"value": "Tomi",
+			"type": "string"
+		}
+	]
+}
