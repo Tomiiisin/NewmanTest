@@ -17,7 +17,7 @@
 								"id": "a9ecaf75-48b3-4ba4-b68c-74128ef8f3fa",
 								"exec": [
 									"pm.test(\"HTTP status code should be 200\", function () {",
-									"    pm.response.to.have.status(400);",
+									"    pm.response.to.have.status(200);",
 									"});",
 									"",
 									"pm.test(\"Respone body has token\", function () {",
@@ -490,36 +490,36 @@
 	],
 	"variable": [
 		{
-			"id": "f46aa25a-c6dc-42e5-872f-07c075b288d9",
+			"id": "5cd3cdd1-22d1-4099-9f8e-1ae3e82ba7ca",
 			"key": "randomNum",
 			"value": ""
 		},
 		{
-			"id": "eb1127ed-315d-4ffb-85b1-941b6c461b8a",
+			"id": "3b466f13-701b-4915-ba63-31a0c4f6c002",
 			"key": "commonurl",
 			"value": "https://reqres.in",
 			"type": "string"
 		},
 		{
-			"id": "468158f8-0bf5-4a91-bcf9-2a40abb0b214",
+			"id": "fb888bfd-3bb6-4341-9f59-f47f6e59805b",
 			"key": "job",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "0407570c-8daf-4c16-8e64-9f84dd2deb16",
+			"id": "da0b6083-5cd3-4c63-9f18-eac000e565a4",
 			"key": "email",
 			"value": "eve.holt@reqres.in",
 			"type": "string"
 		},
 		{
-			"id": "28604b74-829c-4364-b0b9-be7d1b991520",
+			"id": "7d3e4d4b-39b8-4fcc-870d-aa1228fbb7b3",
 			"key": "validpassword",
 			"value": "cityslicka",
 			"type": "string"
 		},
 		{
-			"id": "3c80ed29-d778-402e-9d26-480c53d9546c",
+			"id": "b0ce246d-0c17-4ee8-b350-2fccab782f11",
 			"key": "name",
 			"value": "Tomi",
 			"type": "string"
